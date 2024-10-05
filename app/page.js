@@ -101,46 +101,48 @@ export default function Home() {
           Add Todo
         </button>
       </form>
-      <div className="relative overflow-x-auto mt-24 w-[60%] mx-auto">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-              <th scope="col" className="px-6 py-3">
-                Id
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Title
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Description
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Status
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Action
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {todosList?.length > 0 &&
-              todosList?.map((item, index) => {
-                return (
-                  <Todo
-                    key={index}
-                    title={item.title}
-                    description={item.description}
-                    mongoId={item._id}
-                    completed={item.isCompleted}
-                    id={index}
-                    deleteTodo={deleteTodo}
-                    updateTodo={updateTodo}
-                  />
-                );
-              })}
-          </tbody>
-        </table>
-      </div>
+      {todosList?.length > 0 && (
+        <div className="relative overflow-x-auto mt-24 w-[60%] mx-auto">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" className="px-6 py-3">
+                  Id
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Title
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Description
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Status
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {todosList?.length > 0 &&
+                todosList?.map((item, index) => {
+                  return (
+                    <Todo
+                      key={index}
+                      title={item.title}
+                      description={item.description}
+                      mongoId={item._id}
+                      completed={item.isCompleted}
+                      id={index}
+                      deleteTodo={deleteTodo}
+                      updateTodo={updateTodo}
+                    />
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
+      )}
     </>
   );
 }
