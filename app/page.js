@@ -1,4 +1,5 @@
 "use client";
+import "tailwindcss/tailwind.css";
 import Todo from "../Components/Todo";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
